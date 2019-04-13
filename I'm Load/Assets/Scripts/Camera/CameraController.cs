@@ -29,6 +29,8 @@ public class CameraController : MonoBehaviour
         touchInputController.OnPinchStop += TouchInputController_OnPinchStop;
     }
 
+    public bool IsPoint { get; set; }
+
     #region Drag
 
     Vector3 CameraDragStartPosition;
@@ -38,6 +40,7 @@ public class CameraController : MonoBehaviour
     private void TouchInputController_OnDragStart(Vector3 pos, bool isLongTap)
     {
         if (CameraRect.Contains(pos) == false) return;
+        if (IsPoint == false) return; 
 
         IsDrag = true;
         CameraDragStartPosition = Transform.position;
@@ -85,6 +88,7 @@ public class CameraController : MonoBehaviour
     private void TouchInputController_OnPinchStart(Vector3 pinchCenter, float pinchDistance)
     {
         if (CameraRect.Contains(pinchCenter) == false) return;
+        if (IsPoint == false) return;
 
         IsPinch = true;
         CameraZoomStartSize = Camera.orthographicSize;
