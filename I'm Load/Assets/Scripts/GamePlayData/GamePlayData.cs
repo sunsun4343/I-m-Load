@@ -9,21 +9,30 @@ public class GamePlayData : MonoBehaviour
     [SerializeField] TilemapController tilemap_Ground;
     [SerializeField] TilemapController tilemap_Build;
 
-    uint[,] map_Ground;
-    uint[,] map_Build;
+    public bool[,] map_Able_Build { get; private set; }
+    public bool[,] map_Able_Move { get; private set; }
+
+    uint[,] map_Index_Ground;
+    uint[,] map_Index_Build;
 
     internal void GenerateMap()
     {
         int size = 100;
 
-        map_Ground = new uint[size, size];
-        map_Build = new uint[size, size];
+        map_Able_Build = new bool[size, size];
+        map_Able_Move = new bool[size, size];
+
+        map_Index_Ground = new uint[size, size];
+        map_Index_Build = new uint[size, size];
 
         for (int y = 0; y < size; y++)
         {
             for (int x = 0; x < size; x++)
             {
-                map_Ground[y, x] = 0;
+                map_Able_Build[y, x] = true;
+                map_Able_Move[y, x] = true;
+
+                map_Index_Ground[y, x] = 0;
                 tilemap_Ground.SetTile(new Vector2Int(x, y), 0);
             }
         }
@@ -58,9 +67,14 @@ public class GamePlayData : MonoBehaviour
                         tilemap_Build.SetTile(pos, db.tileBases_R3[y * size.x + x]);
                         break;
                 }
-                map_Build[pos.x, pos.y] = db.index;
+                map_Index_Build[pos.x, pos.y] = db.index;
+
+                map_Able_Build[pos.x, pos.y] = false;
+                map_Able_Move[pos.x, pos.y] = false;
             }
         }
+
+
 
     }
 }
