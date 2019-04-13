@@ -6,6 +6,7 @@ using UnityEngine.Tilemaps;
 [CreateAssetMenu(fileName ="New Building", menuName ="GameDB/Building")]
 public class Building : ScriptableObject
 {
+    public uint index;
     public Sprite[] PreviewSprites;
     public Vector2Int size;
     public Vector2Int offsetSize

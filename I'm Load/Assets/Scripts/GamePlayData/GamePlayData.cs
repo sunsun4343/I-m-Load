@@ -54,6 +54,7 @@ public class GamePlayData : MonoBehaviour
                         tilemap_Build.SetTile(pos, db.tileBases_R3[y * db.size.x + x]);
                         break;
                 }
+                map_Build[pos.x, pos.y] = db.index;
             }
         }
 
