@@ -1924,7 +1924,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff6352ff3da99f249b9262f12c9dcc01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraTransform: {fileID: 970545772}
   tilemap_Ground: {fileID: 6077715}
   tilemap_Build: {fileID: 504982335}
 --- !u!1 &1359016408
@@ -2687,6 +2686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gamePlayData: {fileID: 1319806886}
+  CameraTransform: {fileID: 970545772}
 --- !u!1 &2053099732
 GameObject:
   m_ObjectHideFlags: 0

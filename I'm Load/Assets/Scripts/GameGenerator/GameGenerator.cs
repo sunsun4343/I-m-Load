@@ -6,13 +6,17 @@ using UnityEngine;
 public class GameGenerator : MonoBehaviour
 {
     [SerializeField] GamePlayData gamePlayData;
+    [SerializeField] Transform CameraTransform;
 
 
     void Start()
     {
         GameStartConfig config = FindGameStartConfig();
 
-        gamePlayData.GenerateMap();
+        uint size = 100;
+        gamePlayData.GenerateMap(size);
+
+        CameraTransform.position = new Vector3(size * 0.5f, size * 0.5f, -10);
 
     }
 

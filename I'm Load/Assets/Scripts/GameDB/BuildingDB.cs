@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 [CreateAssetMenu(fileName ="New Building", menuName ="GameDB/Building")]
-public class Building : ScriptableObject
+public class BuildingDB : ScriptableObject
 {
     public uint index;
     public Sprite[] PreviewSprites;

@@ -16,7 +16,7 @@ public class PreviewBuild : MonoBehaviour
 
     RectTransform ControlMenuRectTransform;
 
-    Building db;
+    BuildingDB db;
     int rotate;
     Vector2Int size;
     Vector2Int buildPosition;
@@ -84,7 +84,7 @@ public class PreviewBuild : MonoBehaviour
         ControlMenuRectTransform.anchoredPosition = screenPosition;
     }
 
-    public void ActiveBuilding(Building DB)
+    public void ActiveBuilding(BuildingDB DB)
     {
         this.db = DB;
 

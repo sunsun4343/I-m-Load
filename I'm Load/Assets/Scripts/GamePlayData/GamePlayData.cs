@@ -5,7 +5,15 @@ using UnityEngine;
 
 public class GamePlayData : MonoBehaviour
 {
-    [SerializeField] Transform CameraTransform;
+
+    #region Time
+
+
+
+    #endregion
+
+    #region Map
+
     [SerializeField] TilemapController tilemap_Ground;
     [SerializeField] TilemapController tilemap_Build;
 
@@ -15,10 +23,8 @@ public class GamePlayData : MonoBehaviour
     uint[,] map_Index_Ground;
     uint[,] map_Index_Build;
 
-    internal void GenerateMap()
+    internal void GenerateMap(uint size)
     {
-        int size = 100;
-
         map_Able_Build = new bool[size, size];
         map_Able_Move = new bool[size, size];
 
@@ -35,14 +41,26 @@ public class GamePlayData : MonoBehaviour
                 map_Index_Ground[y, x] = 0;
                 tilemap_Ground.SetTile(new Vector2Int(x, y), 0);
             }
-        }
-
-        CameraTransform.position = new Vector3(size * 0.5f, size* 0.5f, -10);
-
+        }        
     }
 
-    public void CreateBuilding(Building db, Vector2Int buildPosition, int rotate)
+    public void CreateBuilding(BuildingDB db, Vector2Int buildPosition, int rotate)
     {
+        //List Setting
+        Building building = new Building();
+        building.db = db;
+        building.position = buildPosition;
+
+        buildings.Add(building);
+        if (buildingsByIndex.ContainsKey(db.index))
+            buildingsByIndex[db.index].Add(building);
+        else
+        {
+            buildingsByIndex[db.index] = new List<Building>();
+            buildingsByIndex[db.index].Add(building);
+        }
+
+        //TileMap Setting
         Vector2Int size = db.size;
         if (rotate == 1 || rotate == 3)
             size = new Vector2Int(db.size.y, db.size.x);
@@ -51,7 +69,7 @@ public class GamePlayData : MonoBehaviour
         {
             for (int x = 0; x < size.x; x++)
             {
-                Vector2Int pos = buildPosition + new Vector2Int(x,size.y - 1 - y);
+                Vector2Int pos = buildPosition + new Vector2Int(x, size.y - 1 - y);
                 switch (rotate)
                 {
                     case 0:
@@ -73,8 +91,15 @@ public class GamePlayData : MonoBehaviour
                 map_Able_Move[pos.x, pos.y] = false;
             }
         }
-
-
-
     }
+
+    #endregion
+
+    #region Building
+
+    public List<Building> buildings = new List<Building>();
+    public Dictionary<uint, List<Building>> buildingsByIndex = new Dictionary<uint, List<Building>>();
+
+    #endregion
+
 }
