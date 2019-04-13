@@ -18,6 +18,7 @@ public class GameGenerator : MonoBehaviour
 
         CameraTransform.position = new Vector3(size * 0.5f, size * 0.5f, -10);
 
+
     }
 
     private GameStartConfig FindGameStartConfig()
