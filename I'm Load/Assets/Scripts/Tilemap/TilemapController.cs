@@ -20,4 +20,10 @@ public class TilemapController : MonoBehaviour
         tilemap.SetTile(pos, tileBases[index]);
     }
 
+    public void SetTile(Vector2Int position, TileBase tileBase)
+    {
+        Vector3Int pos = new Vector3Int(position.x, position.y, 0);
+        tilemap.SetTile(pos, tileBase);
+    }
+
 }

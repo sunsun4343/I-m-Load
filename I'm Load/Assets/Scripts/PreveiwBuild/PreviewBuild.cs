@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PreviewBuild : MonoBehaviour
 {
+    [SerializeField] GamePlayData gamePlayData;
     [SerializeField] GameObject ControlMenuObj;
     [SerializeField] Transform CameraTransform;
     [SerializeField] SpriteRenderer spriteRenderer;
@@ -12,6 +13,7 @@ public class PreviewBuild : MonoBehaviour
 
     Building db;
     int rotate;
+    Vector2Int buildPosition;
 
 
     private void Awake()
@@ -34,6 +36,12 @@ public class PreviewBuild : MonoBehaviour
         position.y = Mathf.FloorToInt(CamPos.y);
         this.transform.position = position;
 
+        Vector2Int positionInt = Vector2Int.zero;
+        positionInt.x = (int)position.x;
+        positionInt.y = (int)position.y;
+        Vector2Int offsetSize = db.offsetSize;
+        buildPosition = positionInt - offsetSize;
+
         //ControllMenu Position
         Vector3 controlPosition = position + new Vector3(0, spriteRenderer.size.y * 0.5f, 0);
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(controlPosition);
@@ -55,7 +63,7 @@ public class PreviewBuild : MonoBehaviour
 
     public void Build()
     {
-
+        gamePlayData.CreateBuilding(db, buildPosition, rotate);
 
         ControlMenuObj.SetActive(false);
         this.gameObject.SetActive(false);

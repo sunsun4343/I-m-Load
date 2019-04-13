@@ -549,6 +549,7 @@ GameObject:
   - component: {fileID: 504982332}
   - component: {fileID: 504982334}
   - component: {fileID: 504982333}
+  - component: {fileID: 504982335}
   m_Layer: 0
   m_Name: 1.Build
   m_TagString: Untagged
@@ -652,6 +653,19 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &504982335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504982331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d5d9c37c37ee744986f9796ab4f24d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileBases: []
 --- !u!1 &522149154
 GameObject:
   m_ObjectHideFlags: 0
@@ -1624,6 +1638,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CameraTransform: {fileID: 970545772}
   tilemap_Ground: {fileID: 6077715}
+  tilemap_Build: {fileID: 504982335}
 --- !u!1 &1359016408
 GameObject:
   m_ObjectHideFlags: 0
@@ -2176,6 +2191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 673debbc2fad65348a0d3e046d87da28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gamePlayData: {fileID: 1319806886}
   ControlMenuObj: {fileID: 1082427132}
   CameraTransform: {fileID: 970545772}
   spriteRenderer: {fileID: 116417435}
