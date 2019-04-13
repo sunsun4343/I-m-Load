@@ -49,7 +49,7 @@ public class PreviewBuild : MonoBehaviour
         positionInt.x = (int)position.x;
         positionInt.y = (int)position.y;
         Vector2Int offsetSize = db.offsetSize;
-        if (rotate == 1 || rotate == 3)
+        if (rotate == 1)
             offsetSize = new Vector2Int(offsetSize.y, offsetSize.x);
         buildPosition = positionInt - offsetSize;
 
@@ -110,11 +110,11 @@ public class PreviewBuild : MonoBehaviour
     public void Rotate()
     {
         rotate++;
-        if (rotate >= 4) rotate = 0;
+        if (rotate >= 2) rotate = 0;
         spriteRenderer.sprite = db.PreviewSprites[rotate];
 
         size = db.size;
-        if (rotate == 1 || rotate == 3)
+        if (rotate == 1)
             size = new Vector2Int(db.size.y, db.size.x);
         GuideSpriteRenderer.size = size;
     }

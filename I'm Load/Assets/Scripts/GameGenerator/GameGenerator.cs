@@ -8,7 +8,6 @@ public class GameGenerator : MonoBehaviour
     [SerializeField] GamePlayData gamePlayData;
     [SerializeField] Transform CameraTransform;
 
-
     void Start()
     {
         GameStartConfig config = FindGameStartConfig();

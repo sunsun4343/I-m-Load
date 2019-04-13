@@ -62,7 +62,7 @@ public class GamePlayData : MonoBehaviour
 
         //TileMap Setting
         Vector2Int size = db.size;
-        if (rotate == 1 || rotate == 3)
+        if (rotate == 1)
             size = new Vector2Int(db.size.y, db.size.x);
 
         for (int y = 0; y < size.y; y++)
@@ -77,12 +77,6 @@ public class GamePlayData : MonoBehaviour
                         break;
                     case 1:
                         tilemap_Build.SetTile(pos, db.tileBases_R1[y * size.x + x]);
-                        break;
-                    case 2:
-                        tilemap_Build.SetTile(pos, db.tileBases_R2[y * size.x + x]);
-                        break;
-                    case 3:
-                        tilemap_Build.SetTile(pos, db.tileBases_R3[y * size.x + x]);
                         break;
                 }
                 map_Index_Build[pos.x, pos.y] = db.index;
