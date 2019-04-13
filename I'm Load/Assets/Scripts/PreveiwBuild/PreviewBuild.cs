@@ -34,19 +34,27 @@ public class PreviewBuild : MonoBehaviour
         Vector3 position = Vector3.zero;
         position.x = Mathf.FloorToInt(CamPos.x);
         position.y = Mathf.FloorToInt(CamPos.y);
+        Vector2Int size = db.size;
+        if (rotate == 1 || rotate == 3)
+            size = new Vector2Int(db.size.y, db.size.x);
+        if (size.x % 2 == 1) position.x += 0.5f;
+        if (size.y % 2 == 1) position.y += 0.5f;
         this.transform.position = position;
 
         Vector2Int positionInt = Vector2Int.zero;
         positionInt.x = (int)position.x;
         positionInt.y = (int)position.y;
         Vector2Int offsetSize = db.offsetSize;
+        if (rotate == 1 || rotate == 3)
+            offsetSize = new Vector2Int(offsetSize.y, offsetSize.x);
         buildPosition = positionInt - offsetSize;
 
         //ControllMenu Position
-        Vector3 controlPosition = position + new Vector3(0, spriteRenderer.size.y * 0.5f, 0);
+        Vector3 controlPosition = position;
+        if (rotate == 0 || rotate == 2) controlPosition += new Vector3(0, db.size.y * 0.5f, 0);
+        else if (rotate == 1 || rotate == 3) controlPosition += new Vector3(0, db.size.x * 0.5f, 0);
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(controlPosition);
         ControlMenuRectTransform.anchoredPosition = screenPosition;
-
     }
 
     public void ActiveBuilding(Building DB)

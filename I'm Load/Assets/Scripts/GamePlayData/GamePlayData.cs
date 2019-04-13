@@ -34,24 +34,28 @@ public class GamePlayData : MonoBehaviour
 
     public void CreateBuilding(Building db, Vector2Int buildPosition, int rotate)
     {
-        for (int y = 0; y < db.size.y; y++)
+        Vector2Int size = db.size;
+        if (rotate == 1 || rotate == 3)
+            size = new Vector2Int(db.size.y, db.size.x);
+
+        for (int y = 0; y < size.y; y++)
         {
-            for (int x = 0; x < db.size.x; x++)
+            for (int x = 0; x < size.x; x++)
             {
-                Vector2Int pos = buildPosition + new Vector2Int(x,db.size.y - 1 - y);
+                Vector2Int pos = buildPosition + new Vector2Int(x,size.y - 1 - y);
                 switch (rotate)
                 {
                     case 0:
-                        tilemap_Build.SetTile(pos, db.tileBases_R0[y * db.size.x + x]);
+                        tilemap_Build.SetTile(pos, db.tileBases_R0[y * size.x + x]);
                         break;
                     case 1:
-                        tilemap_Build.SetTile(pos, db.tileBases_R1[y * db.size.x + x]);
+                        tilemap_Build.SetTile(pos, db.tileBases_R1[y * size.x + x]);
                         break;
                     case 2:
-                        tilemap_Build.SetTile(pos, db.tileBases_R2[y * db.size.x + x]);
+                        tilemap_Build.SetTile(pos, db.tileBases_R2[y * size.x + x]);
                         break;
                     case 3:
-                        tilemap_Build.SetTile(pos, db.tileBases_R3[y * db.size.x + x]);
+                        tilemap_Build.SetTile(pos, db.tileBases_R3[y * size.x + x]);
                         break;
                 }
                 map_Build[pos.x, pos.y] = db.index;
