@@ -7,6 +7,7 @@ using UnityEngine.Tilemaps;
 public class BuildingDB : ScriptableObject
 {
     public uint index;
+    public string label;
     public Sprite[] PreviewSprites;
     public Vector2Int size;
     public Vector2Int offsetSize

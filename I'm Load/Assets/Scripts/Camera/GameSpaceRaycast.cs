@@ -11,6 +11,8 @@ public class GameSpaceRaycast : MonoBehaviour
     [SerializeField] Tilemap tilemap;
     [SerializeField] GamePlayData gamePlayData;
 
+    [SerializeField] GameObject PopupUI_StorageBuilding;
+
     Rect gameSpaceRect;
 
     private void Awake()
@@ -45,6 +47,7 @@ public class GameSpaceRaycast : MonoBehaviour
                     Building building = gamePlayData.FindBuilding(new Vector2Int(x, y));
 
                     Debug.Log("Build " + building.position);
+                    PopupUI_StorageBuilding.SetActive(true);
                 }
                 
             }
