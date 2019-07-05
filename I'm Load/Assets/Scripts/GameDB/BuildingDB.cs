@@ -20,5 +20,12 @@ public class BuildingDB : ScriptableObject
     public TileBase[] tileBases_R0;
     public TileBase[] tileBases_R1;
 
+    public enum BuildingType
+    {
+        None,
+        House,
+    }
+
+    public BuildingType type;
 
 }

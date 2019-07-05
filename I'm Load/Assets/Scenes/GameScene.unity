@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 6077714}
   - component: {fileID: 6077713}
   - component: {fileID: 6077715}
+  - component: {fileID: 6077716}
   m_Layer: 0
   m_Name: 0.Ground
   m_TagString: Untagged
@@ -241,6 +242,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileBases:
   - {fileID: 11400000, guid: 857b2087a88da1a459ba42619664f454, type: 2}
+--- !u!19719996 &6077716
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6077711}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
 --- !u!1 &15013410
 GameObject:
   m_ObjectHideFlags: 0
@@ -2310,7 +2325,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 286.5, y: 894.3}
+  m_AnchoredPosition: {x: 522, y: 2009}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1112299739
@@ -2951,6 +2966,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilemap_Ground: {fileID: 6077715}
   tilemap_Build: {fileID: 504982335}
+  buildingChunkSize: 32
 --- !u!1 &1359016408
 GameObject:
   m_ObjectHideFlags: 0
@@ -4382,6 +4398,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1955727643}
   - component: {fileID: 1955727644}
+  - component: {fileID: 1955727645}
   m_Layer: 0
   m_Name: GameGenerator
   m_TagString: Untagged
@@ -4417,6 +4434,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gamePlayData: {fileID: 1319806886}
   CameraTransform: {fileID: 970545772}
+--- !u!114 &1955727645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955727642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b50387023b23d649b09b0e3ba0ef701, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingDB_1_WoodHouse: {fileID: 11400000, guid: e5f98a570bdd3344b88057b7cea8537c,
+    type: 2}
+  buildingDB_2_WareHouse: {fileID: 11400000, guid: 146b4a5e2443de44c9c5c0163ffc238f,
+    type: 2}
 --- !u!1 &2017163950
 GameObject:
   m_ObjectHideFlags: 0
@@ -4503,6 +4536,7 @@ GameObject:
   - component: {fileID: 2053099734}
   - component: {fileID: 2053099736}
   - component: {fileID: 2053099735}
+  - component: {fileID: 2053099737}
   m_Layer: 5
   m_Name: Layout_GameSpace
   m_TagString: Untagged
@@ -4614,6 +4648,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2053099732}
   m_CullTransparentMesh: 0
+--- !u!114 &2053099737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053099732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1139e8cd840ec3a4d9ebf260f34c50ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchInputController: {fileID: 32546553}
+  rectTransform: {fileID: 2053099733}
+  tilemap: {fileID: 6077714}
+  gamePlayData: {fileID: 1319806886}
 --- !u!1 &2083340033
 GameObject:
   m_ObjectHideFlags: 0

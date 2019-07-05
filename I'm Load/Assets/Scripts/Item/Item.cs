@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Building
+public class Item
 {
-    public BuildingDB db;
-    public Vector2Int position;
+
 }
