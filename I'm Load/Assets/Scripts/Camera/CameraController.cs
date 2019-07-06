@@ -8,6 +8,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] TouchInputController touchInputController;
 
     Camera Camera;
+    Camera[] childCameras;
     Rect CameraRect;
     Transform Transform;
     Plane RefPlane;
@@ -15,6 +16,8 @@ public class CameraController : MonoBehaviour
     private void Awake()
     {
         Camera = this.GetComponent<Camera>();
+        childCameras = this.GetComponentsInChildren<Camera>();
+
         float Width = Screen.width;
         float Height = Screen.height;
         CameraRect = new Rect(Camera.rect.x * Width, Camera.rect.y * Height, (Camera.rect.width - Camera.rect.x) * Width, (Camera.rect.height - Camera.rect.y) * Height);
@@ -101,6 +104,10 @@ public class CameraController : MonoBehaviour
         float deltaDistance = pinchDistance - pinchStartDistance;
         float Zoom = Mathf.Clamp(CameraZoomStartSize - deltaDistance * ZoomScala, MinZoom, MaxZoom);
         Camera.orthographicSize = Zoom;
+        for (int i = 0; i < childCameras.Length; i++)
+        {
+            childCameras[i].orthographicSize = Zoom;
+        }
     }
 
     private void TouchInputController_OnPinchStop()

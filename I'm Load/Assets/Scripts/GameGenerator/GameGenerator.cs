@@ -29,17 +29,17 @@ public class GameGenerator : MonoBehaviour
         build_house1.MoveInCitizen(gamePlayData.CreateCitizen(NameUtil.name(true), true, (byte)UnityEngine.Random.Range(10, 18)));
         build_house1.MoveInCitizen(gamePlayData.CreateCitizen(NameUtil.name(false), false, (byte)UnityEngine.Random.Range(10, 18)));
         var build_house2 = gamePlayData.CreateBuilding(woodHouseDB, centerPos + new Vector2Int(-5, -10), 0) as Building_House;
-        build_house1.MoveInCitizen(gamePlayData.CreateCitizen(NameUtil.name(true), true, (byte)UnityEngine.Random.Range(10, 18)));
-        build_house1.MoveInCitizen(gamePlayData.CreateCitizen(NameUtil.name(false), false, (byte)UnityEngine.Random.Range(10, 18)));
+        build_house2.MoveInCitizen(gamePlayData.CreateCitizen(NameUtil.name(true), true, (byte)UnityEngine.Random.Range(10, 18)));
+        build_house2.MoveInCitizen(gamePlayData.CreateCitizen(NameUtil.name(false), false, (byte)UnityEngine.Random.Range(10, 18)));
         var build_house3 = gamePlayData.CreateBuilding(woodHouseDB, centerPos + new Vector2Int(0, -10), 0) as Building_House;
-        build_house1.MoveInCitizen(gamePlayData.CreateCitizen(NameUtil.name(true), true, (byte)UnityEngine.Random.Range(10, 18)));
-        build_house1.MoveInCitizen(gamePlayData.CreateCitizen(NameUtil.name(false), false, (byte)UnityEngine.Random.Range(10, 18)));
+        build_house3.MoveInCitizen(gamePlayData.CreateCitizen(NameUtil.name(true), true, (byte)UnityEngine.Random.Range(10, 18)));
+        build_house3.MoveInCitizen(gamePlayData.CreateCitizen(NameUtil.name(false), false, (byte)UnityEngine.Random.Range(10, 18)));
         var build_house4 = gamePlayData.CreateBuilding(woodHouseDB, centerPos + new Vector2Int(-5, 5), 0) as Building_House;
-        build_house1.MoveInCitizen(gamePlayData.CreateCitizen(NameUtil.name(true), true, (byte)UnityEngine.Random.Range(10, 18)));
-        build_house1.MoveInCitizen(gamePlayData.CreateCitizen(NameUtil.name(false), false, (byte)UnityEngine.Random.Range(10, 18)));
+        build_house4.MoveInCitizen(gamePlayData.CreateCitizen(NameUtil.name(true), true, (byte)UnityEngine.Random.Range(10, 18)));
+        build_house4.MoveInCitizen(gamePlayData.CreateCitizen(NameUtil.name(false), false, (byte)UnityEngine.Random.Range(10, 18)));
         var build_house5 = gamePlayData.CreateBuilding(woodHouseDB, centerPos + new Vector2Int(5, -5), 0) as Building_House;
-        build_house1.MoveInCitizen(gamePlayData.CreateCitizen(NameUtil.name(true), true, (byte)UnityEngine.Random.Range(10, 18)));
-        build_house1.MoveInCitizen(gamePlayData.CreateCitizen(NameUtil.name(false), false, (byte)UnityEngine.Random.Range(10, 18)));
+        build_house5.MoveInCitizen(gamePlayData.CreateCitizen(NameUtil.name(true), true, (byte)UnityEngine.Random.Range(10, 18)));
+        build_house5.MoveInCitizen(gamePlayData.CreateCitizen(NameUtil.name(false), false, (byte)UnityEngine.Random.Range(10, 18)));
         var wareHouseDB = gameDefaultMapGeneratorData.buildingDB_2_WareHouse;
         var build_wareHouse = gamePlayData.CreateBuilding(wareHouseDB, centerPos + new Vector2Int(0, 5), 1);
 

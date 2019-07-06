@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class Item
 {
-
+    public ItemDB db;
+    public uint count;
 }

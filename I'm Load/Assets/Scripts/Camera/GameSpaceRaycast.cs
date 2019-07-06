@@ -11,7 +11,11 @@ public class GameSpaceRaycast : MonoBehaviour
     [SerializeField] Tilemap tilemap;
     [SerializeField] GamePlayData gamePlayData;
 
-    [SerializeField] GameObject PopupUI_StorageBuilding;
+    [SerializeField] BuildingPopupUI_House PopupUI_HouseBuilding;
+    [SerializeField] BuildingPopupUI_Storage PopupUI_StorageBuilding;
+
+    [SerializeField] GameObject PreviewBuildingUI;
+
 
     Rect gameSpaceRect;
 
@@ -28,6 +32,8 @@ public class GameSpaceRaycast : MonoBehaviour
     
     private void TouchInputController_OnInputClick(Vector3 clickPosition, bool isDoubleClick, bool isLongTap)
     {
+        if (PreviewBuildingUI.activeSelf) return;
+
         if (gameSpaceRect.Contains(clickPosition))
         {
             Ray ray = Camera.main.ScreenPointToRay(clickPosition);
@@ -46,8 +52,16 @@ public class GameSpaceRaycast : MonoBehaviour
 
                     Building building = gamePlayData.FindBuilding(new Vector2Int(x, y));
 
-                    Debug.Log("Build " + building.position);
-                    PopupUI_StorageBuilding.SetActive(true);
+                    switch (building.db.type)
+                    {
+                        case BuildingDB.BuildingType.House:
+                            PopupUI_HouseBuilding.Show(building as Building_House);
+                            break;
+                        case BuildingDB.BuildingType.Storage:
+                            PopupUI_StorageBuilding.Show(building as Building_Storage);
+                            break;
+                    }
+                    
                 }
                 
             }

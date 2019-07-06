@@ -73,6 +73,9 @@ public class GamePlayData : MonoBehaviour
             case BuildingDB.BuildingType.House:
                 building = new Building_House();
                 break;
+            case BuildingDB.BuildingType.Storage:
+                building = new Building_Storage();
+                break;
             default:
                 building = new Building();
                 break;

@@ -8,7 +8,7 @@ public class BuildingDB : ScriptableObject
 {
     public uint index;
     public string label;
-    public Sprite[] PreviewSprites;
+    public Texture[] PreviewTextures;
     public Vector2Int size;
     public Vector2Int offsetSize
     {
@@ -25,8 +25,9 @@ public class BuildingDB : ScriptableObject
     {
         None,
         House,
+        Storage,
     }
 
     public BuildingType type;
-
+    
 }

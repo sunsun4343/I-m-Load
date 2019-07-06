@@ -8,8 +8,10 @@ public class PreviewBuild : MonoBehaviour
     [SerializeField] GamePlayData gamePlayData;
     [SerializeField] GameObject ControlMenuObj;
     [SerializeField] Transform CameraTransform;
-    [SerializeField] SpriteRenderer spriteRenderer;
-    [SerializeField] SpriteRenderer GuideSpriteRenderer;
+    [SerializeField] Transform QuadTf;
+    [SerializeField] Material material;
+    //[SerializeField] SpriteRenderer spriteRenderer;
+    //[SerializeField] SpriteRenderer GuideSpriteRenderer;
     [SerializeField] Color BuildAbleColor;
     [SerializeField] Color BuildUnableColor;
     [SerializeField] Button Button_Build;
@@ -26,11 +28,6 @@ public class PreviewBuild : MonoBehaviour
     {
         ControlMenuRectTransform = ControlMenuObj.GetComponent<RectTransform>();
 
-    }
-
-    void Start()
-    {
-        
     }
 
     void Update()
@@ -69,12 +66,12 @@ public class PreviewBuild : MonoBehaviour
         }
         if (IsBuildAble)
         {
-            GuideSpriteRenderer.color = BuildAbleColor;
+            material.SetColor("_Color", BuildAbleColor);
             Button_Build.interactable = true;
         }
         else
         {
-            GuideSpriteRenderer.color = BuildUnableColor;
+            material.SetColor("_Color", BuildUnableColor);
             Button_Build.interactable = false;
         }
 
@@ -93,8 +90,8 @@ public class PreviewBuild : MonoBehaviour
 
         rotate = 0;
         size = db.size;
-        spriteRenderer.sprite = DB.PreviewSprites[rotate];
-        GuideSpriteRenderer.size = size;
+        material.SetTexture("_MainTex", DB.PreviewTextures[rotate]);
+        QuadTf.transform.localScale = new Vector3(size.x, size.y, 1);
     }
 
     public void Build()
@@ -111,12 +108,12 @@ public class PreviewBuild : MonoBehaviour
     {
         rotate++;
         if (rotate >= 2) rotate = 0;
-        spriteRenderer.sprite = db.PreviewSprites[rotate];
+        material.SetTexture("_MainTex", db.PreviewTextures[rotate]);
 
         size = db.size;
         if (rotate == 1)
             size = new Vector2Int(db.size.y, db.size.x);
-        GuideSpriteRenderer.size = size;
+        QuadTf.transform.localScale = new Vector3(size.x, size.y, 1);
     }
 
     public void Cancel()

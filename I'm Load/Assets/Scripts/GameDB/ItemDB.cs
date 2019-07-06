@@ -8,4 +8,5 @@ public class ItemDB : ScriptableObject
     public uint index;
     public string label;
     public uint weight = 1;
+    public Sprite iconSprite;
 }
