@@ -12,15 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a721f907875c754eb9ed21ae0c2a545, type: 3}
   m_Name: 1_WoodHouse
   m_EditorClassIdentifier: 
-  index: 1
-  label: 
-  PreviewSprites:
-  - {fileID: 21300000, guid: 2a9ce1df8a21bf641981978d36569b27, type: 3}
-  - {fileID: 21300000, guid: fe351b7cbd7fb9d4399a95a7961fff68, type: 3}
+  category: 1
+  type: 1
+  labelKey: building.woodhouse
   PreviewTextures:
   - {fileID: 2800000, guid: d7d0c6953c99fa640a87e7e046862250, type: 3}
   - {fileID: 2800000, guid: 9560472c25e832d498d7c4f27b759fa3, type: 3}
-  size: {x: 4, y: 4}
   tileBases_R0:
   - {fileID: 11400000, guid: 4db4384ff0a3c0148bf0d25f7213dd7c, type: 2}
   - {fileID: 11400000, guid: 09e83d3a0d902674784cbb830911e2ed, type: 2}
@@ -55,4 +52,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2b0ea259f7c5f0d4a99677cadd6e3c06, type: 2}
   - {fileID: 11400000, guid: f27214863aed5ef4ba40e4f1a558eff5, type: 2}
   - {fileID: 11400000, guid: e6ac1c5de2f187440a81d5bdaac5d5a6, type: 2}
-  type: 1
+  size: {x: 4, y: 4}
+  ConstructionItemConditions:
+  - type: 1
+    count: 10
+  laborforce: 10

@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class ResourceInfoUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] GamePlayData gamePlayData;
+    [SerializeField] ResourceInfoItemUI ItemPrefabs;
+    [SerializeField] Transform ItemParent;
+
+    List<ResourceInfoItemUI> ItemUIs = new List<ResourceInfoItemUI>();
+
+    public void Start()
     {
-        
+        //Default
+        Create_ResourceInfoItem(ItemDB.Type.Wood);
+        Create_ResourceInfoItem(ItemDB.Type.Stone);
     }
 
-    // Update is called once per frame
-    void Update()
+    void Create_ResourceInfoItem(ItemDB.Type type)
     {
-        
+        var item = Lean.Pool.LeanPool.Spawn<ResourceInfoItemUI>(ItemPrefabs);
+        item.transform.parent = ItemParent;
+        item.gameObject.SetActive(true);
+        item.InitUI(gamePlayData.GetItemSurely(type));
+        ItemUIs.Add(item);
     }
+
+
+
 }

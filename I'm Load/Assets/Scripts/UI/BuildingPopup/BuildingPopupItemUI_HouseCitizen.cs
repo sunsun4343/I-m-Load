@@ -19,6 +19,6 @@ public class BuildingPopupItemUI_HouseCitizen : BuildingPopupItemUI
         Text_Name.text = citizen.name;
         Image_sex.sprite = citizen.sex ? Sprite_Male : Sprite_Female;
         Text_Age.text = citizen.age.ToString();
-        Text_Job.text = citizen.job;
+        Text_Job.text = Str.Get(citizen.job.labelKey);
     }
 }

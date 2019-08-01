@@ -1,0 +1,11 @@
+﻿building.woodhouse=나무주택
+building.woodstorage=나무창고
+
+item.wood=목재
+item.stone=석재
+item.ironore=철광석
+item.iron=철
+item.stonetool=석재도구
+item.irontool=철도구
+
+job.worker=노동자

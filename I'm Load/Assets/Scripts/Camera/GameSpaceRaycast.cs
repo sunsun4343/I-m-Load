@@ -52,12 +52,12 @@ public class GameSpaceRaycast : MonoBehaviour
 
                     Building building = gamePlayData.FindBuilding(new Vector2Int(x, y));
 
-                    switch (building.db.type)
+                    switch (building.db.category)
                     {
-                        case BuildingDB.BuildingType.House:
+                        case BuildingDB.Category.House:
                             PopupUI_HouseBuilding.Show(building as Building_House);
                             break;
-                        case BuildingDB.BuildingType.Storage:
+                        case BuildingDB.Category.Storage:
                             PopupUI_StorageBuilding.Show(building as Building_Storage);
                             break;
                     }

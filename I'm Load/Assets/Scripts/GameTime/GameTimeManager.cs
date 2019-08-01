@@ -108,6 +108,8 @@ public class GameTimeManager : MonoBehaviour
 
     double prevRealtimeSinceStartup;
 
+    public Action<double> OnUpdate;
+
     void Update()
     {
         if (IsPlaying)
@@ -118,6 +120,8 @@ public class GameTimeManager : MonoBehaviour
             prevRealtimeSinceStartup = realtime;
 
             GameTime += deltaTime;
+
+            if (OnUpdate != null) OnUpdate(deltaTime);
 
             //GameTime Calc
             double gameTime = DefaultGameTime + GameTime;

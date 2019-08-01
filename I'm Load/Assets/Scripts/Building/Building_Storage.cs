@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class Building_Storage : Building
 {
-    public List<Item> storage_items = new List<Item>();
+    public BuildingComponent_StorageItem storageItemComponent { get; }
 
+    public Building_Storage(BuildingDB db, Vector2Int position, int rotate) : base(db, position, rotate)
+    {
+        storageItemComponent = new BuildingComponent_StorageItem(this);
 
+    }
 
 }

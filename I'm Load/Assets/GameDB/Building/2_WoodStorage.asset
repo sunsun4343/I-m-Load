@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a721f907875c754eb9ed21ae0c2a545, type: 3}
-  m_Name: 2_WareHouse
+  m_Name: 2_WoodStorage
   m_EditorClassIdentifier: 
-  index: 2
-  label: 
+  category: 2
+  type: 2
+  labelKey: building.woodstorage
   PreviewTextures:
   - {fileID: 2800000, guid: b88b5b5c56e2633469dcac51e941d187, type: 3}
   - {fileID: 2800000, guid: d32cda53c8a1ead4093e82f9be4947ee, type: 3}
@@ -80,4 +81,3 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 66f0c78d386608f4dba4f9dce4838062, type: 2}
   - {fileID: 11400000, guid: 2e5382a5a614c5440bc5be5efabc36eb, type: 2}
   - {fileID: 11400000, guid: 533ebbf98c602ed4d9edb9a9c02ea557, type: 2}
-  type: 2

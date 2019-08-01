@@ -13,8 +13,8 @@ public class BuildingPopupItemUI_StorageItem : BuildingPopupItemUI
     public void InitUI(Item item)
     {
         Image_icon.sprite = item.db.iconSprite;
-        Text_Name.text = item.db.label;
-        Text_Count.text = item.count.ToString();
+        Text_Name.text = Str.Get(item.db.labelKey);
+        Text_Count.text = item.count.ToString("#,##0");
     }
 
 }

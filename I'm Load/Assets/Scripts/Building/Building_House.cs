@@ -2,13 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Building_House : Building
 {
+    public BuildingComponent_ResidenceCitizen residenceCitizenComponent { get; }
+    public BuildingComponent_StorageItem storageItemComponent { get; }
 
-    public List<Citizen> residence_citizen = new List<Citizen>();
-
-    public void MoveInCitizen(Citizen citizen)
+    public Building_House(BuildingDB db, Vector2Int position, int rotate) : base(db, position, rotate)
     {
-        residence_citizen.Add(citizen);
+        storageItemComponent = new BuildingComponent_StorageItem(this);
+        residenceCitizenComponent = new BuildingComponent_ResidenceCitizen(this);
+
     }
+
+    public BuildingPath buildingPath_Storage;
+
+
 }
